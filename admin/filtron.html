@@ -4,22 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to protect an instance &#8212; Searx Documentation (Searx-0.16.0.tex)</title>
-    <link rel="stylesheet" href="../_static/searx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <title>How to protect an instance &#8212; Searx Documentation (Searx-1.0.0.tex)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/searx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to setup result proxy" href="morty.html" />
-    <link rel="prev" title="Architecture" href="architecture.html" />
-  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
-   
+    <link rel="prev" title="Architecture" href="architecture.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +26,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="morty.html" title="How to setup result proxy"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="architecture.html" title="Architecture"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-0.16.0.tex)</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-1.0.0.tex)</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Administrator documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">How to protect an instance</a></li> 
       </ul>
@@ -78,7 +79,7 @@ an installation and the maintenance of, use our script <a class="reference inter
 <div class="sidebar">
 <p class="sidebar-title">Tooling box</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/asciimoo/searx/blob/master/utils/templates/etc/filtron/rules.json">/etc/filtron/rules.json</a></p></li>
+<li><p><a class="reference external" href="https://github.com/searx/searx/blob/master/utils/templates/etc/filtron/rules.json">/etc/filtron/rules.json</a></p></li>
 </ul>
 </div>
 <p>An example configuration can be find below. This configuration limits the access
@@ -97,8 +98,8 @@ of:</p>
             <span class="s2">&quot;Param:q&quot;</span><span class="p">,</span>
             <span class="s2">&quot;Path=^(/|/search)$&quot;</span>
         <span class="p">],</span>
-        <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span>
-        <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
         <span class="nt">&quot;subrules&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;missing Accept-Language&quot;</span><span class="p">,</span>
@@ -124,8 +125,8 @@ of:</p>
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;IP limit&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span>
-                <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;stop&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
                 <span class="nt">&quot;aggregations&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="s2">&quot;Header:X-Forwarded-For&quot;</span>
@@ -144,8 +145,8 @@ of:</p>
                 <span class="nt">&quot;filters&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="s2">&quot;Param:format=(csv|json|rss)&quot;</span>
                 <span class="p">],</span>
-                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span>
-                <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;stop&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
                 <span class="nt">&quot;actions&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="p">{</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;log&quot;</span><span class="p">},</span>
@@ -158,8 +159,8 @@ of:</p>
             <span class="p">},</span>
             <span class="p">{</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;useragent limit&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span>
-                <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;interval&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;time-interval-in-sec (int)&gt;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;limit&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;max-request-number-in-interval (int)&gt;&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;aggregations&quot;</span><span class="p">:</span> <span class="p">[</span>
                     <span class="s2">&quot;Header:User-Agent&quot;</span>
                 <span class="p">],</span>
@@ -200,7 +201,7 @@ of:</p>
 <span class="k">location</span> <span class="s">/searx</span> <span class="p">{</span>
     <span class="kn">proxy_pass</span>         <span class="s">http://127.0.0.1:4004/</span><span class="p">;</span>
 
-    <span class="kn">proxy_set_header</span>   <span class="s">Host</span>             <span class="nv">$http_host</span><span class="p">;</span>
+    <span class="kn">proxy_set_header</span>   <span class="s">Host</span>             <span class="nv">$host</span><span class="p">;</span>
     <span class="kn">proxy_set_header</span>   <span class="s">Connection</span>       <span class="nv">$http_connection</span><span class="p">;</span>
     <span class="kn">proxy_set_header</span>   <span class="s">X-Real-IP</span>        <span class="nv">$remote_addr</span><span class="p">;</span>
     <span class="kn">proxy_set_header</span>   <span class="s">X-Forwarded-For</span>  <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
@@ -235,13 +236,17 @@ port 8888 where a searx is being run. For a complete setup see: <a class="refere
 
   <h3>Project Links</h3>
   <ul>
-    <li><a href="https://github.com/asciimoo/searx">Source</a>
+    <li><a href="blog/index.html">Blog</a>
   
-    <li><a href="https://github.com/asciimoo/searx/wiki">Wiki</a>
+    <li><a href="https://github.com/searx/searx">Source</a>
   
-    <li><a href="https://searx.space/">Public instances</a>
+    <li><a href="https://github.com/searx/searx/wiki">Wiki</a>
+  
+    <li><a href="https://searx.space">Public instances</a>
   
     <li><a href="https://twitter.com/Searx_engine">Twitter</a>
+  
+    <li><a href="https://github.com/searx/searx/issues">Issue Tracker</a>
   </ul><h3>Navigation</h3>
 <ul>
   <li><a href="../index.html">Overview</a>
@@ -258,7 +263,7 @@ port 8888 where a searx is being run. For a complete setup see: <a class="refere
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -270,8 +275,8 @@ port 8888 where a searx is being run. For a complete setup see: <a class="refere
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2020, Adam Tauber, Noémi Ványi.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+        &#169; Copyright 2015-2021, Adam Tauber, Noémi Ványi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

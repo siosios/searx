@@ -15,8 +15,8 @@ generated and deployed at :docs:`github.io <.>`.  For build prerequisites read
 :ref:`docs build`.
 
 The source files of Searx's documentation are located at :origin:`docs`.  Sphinx
-assumes source files to be encoded in UTF-8 by defaul.  Run :ref:`make docs-live
-<make docs-live>` to build HTML while editing.
+assumes source files to be encoded in UTF-8 by defaul.  Run :ref:`make docs.live
+<make docs.live>` to build HTML while editing.
 
 .. sidebar:: Further reading
 
@@ -319,6 +319,9 @@ To list all anchors of the inventory (e.g. ``python``) use:
 .. code:: sh
 
    $ python -m sphinx.ext.intersphinx https://docs.python.org/3/objects.inv
+   ...
+   $ python -m sphinx.ext.intersphinx https://searx.github.io/searx/objects.inv
+   ...
 
 Literal blocks
 ==============
@@ -1273,28 +1276,33 @@ Templating
 
 .. sidebar:: Build environment
 
-   All *generic-doc* tasks are running in the :ref:`build environment <make
-   pyenv>`.
+   All *generic-doc* tasks are running in the :ref:`make install`.
 
 Templating is suitable for documentation which is created generic at the build
-time.  The sphinx-jinja_ extension evaluates jinja_ templates in the :ref:`build
-environment <make pyenv>` (with searx modules installed).  We use this e.g. to
-build chapter: :ref:`engines generic`.  Below the jinja directive from the
+time.  The sphinx-jinja_ extension evaluates jinja_ templates in the :ref:`make
+install` (with searx modules installed).  We use this e.g. to build chapter:
+:ref:`engines generic`.  Below the jinja directive from the
 :origin:`docs/admin/engines.rst` is shown:
 
 .. literalinclude:: ../admin/engines.rst
    :language: reST
    :start-after: .. _configured engines:
 
-The context for the template is selected in the line ``.. jinja:: webapp``.  In
-sphinx's build configuration (:origin:`docs/conf.py`) the ``webapp`` context
-points to the name space of the python module: ``webapp``.
+The context for the template is selected in the line ``.. jinja:: searx``.  In
+sphinx's build configuration (:origin:`docs/conf.py`) the ``searx`` context
+contains the ``engines`` and ``plugins``.
 
 .. code:: py
 
-   from searx import webapp
+   import searx.search
+   import searx.engines
+   import searx.plugins
+   searx.search.initialize()
    jinja_contexts = {
-       'webapp': dict(**webapp.__dict__)
+      'searx': {
+         'engines': searx.engines.engines,
+         'plugins': searx.plugins.plugins
+      },
    }
 
 
@@ -1391,27 +1399,27 @@ The next example shows the difference of ``\tfrac`` (*textstyle*) and ``\dfrac``
 
 .. _readability: https://docs.python-guide.org/writing/style/
 .. _Sphinx-Primer:
-    http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+    https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 .. _reST: https://docutils.sourceforge.io/rst.html
 .. _Sphinx Roles:
     https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html
-.. _Sphinx: http://www.sphinx-doc.org
-.. _`sphinx-doc FAQ`: http://www.sphinx-doc.org/en/stable/faq.html
+.. _Sphinx: https://www.sphinx-doc.org
+.. _`sphinx-doc FAQ`: https://www.sphinx-doc.org/en/stable/faq.html
 .. _Sphinx markup constructs:
-    http://www.sphinx-doc.org/en/stable/markup/index.html
+    https://www.sphinx-doc.org/en/stable/markup/index.html
 .. _`sphinx cross references`:
-    http://www.sphinx-doc.org/en/stable/markup/inline.html#cross-referencing-arbitrary-locations
+    https://www.sphinx-doc.org/en/stable/markup/inline.html#cross-referencing-arbitrary-locations
 .. _sphinx.ext.extlinks:
     https://www.sphinx-doc.org/en/master/usage/extensions/extlinks.html
-.. _intersphinx: http://www.sphinx-doc.org/en/stable/ext/intersphinx.html
-.. _sphinx config: http://www.sphinx-doc.org/en/stable/config.html
-.. _Sphinx's autodoc: http://www.sphinx-doc.org/en/stable/ext/autodoc.html
+.. _intersphinx: https://www.sphinx-doc.org/en/stable/ext/intersphinx.html
+.. _sphinx config: https://www.sphinx-doc.org/en/stable/config.html
+.. _Sphinx's autodoc: https://www.sphinx-doc.org/en/stable/ext/autodoc.html
 .. _Sphinx's Python domain:
-    http://www.sphinx-doc.org/en/stable/domains.html#the-python-domain
+    https://www.sphinx-doc.org/en/stable/domains.html#the-python-domain
 .. _Sphinx's C domain:
-   http://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs
+   https://www.sphinx-doc.org/en/stable/domains.html#cross-referencing-c-constructs
 .. _doctree:
-    http://www.sphinx-doc.org/en/master/extdev/tutorial.html?highlight=doctree#build-phases
+    https://www.sphinx-doc.org/en/master/extdev/tutorial.html?highlight=doctree#build-phases
 .. _docutils: http://docutils.sourceforge.net/docs/index.html
 .. _docutils FAQ: http://docutils.sourceforge.net/FAQ.html
 .. _linuxdoc: https://return42.github.io/linuxdoc
@@ -1424,5 +1432,5 @@ The next example shows the difference of ``\tfrac`` (*textstyle*) and ``\dfrac``
 .. _ImageMagick: https://www.imagemagick.org
 
 .. _`Emacs Table Mode`: https://www.emacswiki.org/emacs/TableMode
-.. _`Online Tables Generator`: http://www.tablesgenerator.com/text_tables
+.. _`Online Tables Generator`: https://www.tablesgenerator.com/text_tables
 .. _`OASIS XML Exchange Table Model`: https://www.oasis-open.org/specs/tm9901.html

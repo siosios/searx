@@ -4,21 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Limit access to your searx engines &#8212; Searx Documentation (Searx-0.16.0.tex)</title>
-    <link rel="stylesheet" href="../_static/searx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <title>Limit access to your searx engines &#8212; Searx Documentation (Searx-1.0.0.tex)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/searx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Preparation for offline engines" href="intro-offline.html" />
-  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
-   
+    <link rel="next" title="Preparation for offline engines" href="intro-offline.html" />
+    <link rel="prev" title="Developing in Linux containers [202006]" href="lxcdev-202006.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -27,9 +26,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="intro-offline.html" title="Preparation for offline engines"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="lxcdev-202006.html" title="Developing in Linux containers [202006]"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-0.16.0.tex)</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-1.0.0.tex)</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Blog</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Limit access to your searx engines</a></li> 
       </ul>
@@ -47,17 +52,17 @@ enabled engines on their instances. It might be because they do not want to
 expose some private information through an offline engine. Or they
 would rather share engines only with their trusted friends or colleagues.</p>
 <div class="section" id="private-engines">
-<h2>Private engines<a class="headerlink" href="#private-engines" title="Permalink to this headline">¶</a></h2>
-<p>To solve this issue private engines were introduced in <a class="reference external" href="https://github.com/asciimoo/searx/pull/1823">PR 1823</a>.
+<span id="id1"></span><h2>Private engines<a class="headerlink" href="#private-engines" title="Permalink to this headline">¶</a></h2>
+<p>To solve this issue private engines were introduced in <a class="reference external" href="https://github.com/searx/searx/pull/1823">PR 1823</a>.
 A new option was added to engines named <cite>tokens</cite>. It expects a list
 of strings. If the user making a request presents one of the tokens
 of an engine, they can access information about the engine
 and make search requests.</p>
 <p>Example configuration to restrict access to the Arch Linux Wiki engine:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">arch linux wiki</span>
-  <span class="l l-Scalar l-Scalar-Plain">engine</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">archlinux</span>
-  <span class="l l-Scalar l-Scalar-Plain">shortcut</span> <span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">al</span>
-  <span class="l l-Scalar l-Scalar-Plain">tokens</span> <span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span> <span class="s">&#39;my-secret-token&#39;</span> <span class="p p-Indicator">]</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">name </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arch linux wiki</span>
+  <span class="nt">engine </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">archlinux</span>
+  <span class="nt">shortcut </span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">al</span>
+  <span class="nt">tokens </span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="s">&#39;my-secret-token&#39;</span> <span class="p p-Indicator">]</span>
 </pre></div>
 </div>
 <p>Unless a user has configured the right token, the engine is going
@@ -108,21 +113,25 @@ and come up with new solutions which fit your use case.</p>
 
   <h3>Project Links</h3>
   <ul>
-    <li><a href="https://github.com/asciimoo/searx">Source</a>
+    <li><a href="blog/index.html">Blog</a>
   
-    <li><a href="https://github.com/asciimoo/searx/wiki">Wiki</a>
+    <li><a href="https://github.com/searx/searx">Source</a>
   
-    <li><a href="https://searx.space/">Public instances</a>
+    <li><a href="https://github.com/searx/searx/wiki">Wiki</a>
+  
+    <li><a href="https://searx.space">Public instances</a>
   
     <li><a href="https://twitter.com/Searx_engine">Twitter</a>
+  
+    <li><a href="https://github.com/searx/searx/issues">Issue Tracker</a>
   </ul><h3>Navigation</h3>
 <ul>
   <li><a href="../index.html">Overview</a>
     <ul>
       <li><a href="index.html">Blog</a>
         <ul>
-          <li>Previous: <a href="intro-offline.html" title="previous chapter">Preparation for offline engines</a>
-          </ul>
+          <li>Previous: <a href="lxcdev-202006.html" title="previous chapter">Developing in Linux containers [202006]</a>
+          <li>Next: <a href="intro-offline.html" title="next chapter">Preparation for offline engines</a></ul>
       </li>
     </ul>
   </li>
@@ -131,7 +140,7 @@ and come up with new solutions which fit your use case.</p>
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -143,8 +152,8 @@ and come up with new solutions which fit your use case.</p>
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2020, Adam Tauber, Noémi Ványi.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+        &#169; Copyright 2015-2021, Adam Tauber, Noémi Ványi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

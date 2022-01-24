@@ -4,22 +4,20 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Architecture &#8212; Searx Documentation (Searx-0.16.0.tex)</title>
-    <link rel="stylesheet" href="../_static/searx.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <title>Architecture &#8212; Searx Documentation (Searx-1.0.0.tex)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/searx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to protect an instance" href="filtron.html" />
-    <link rel="prev" title="Administration API" href="api.html" />
-  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
-   
+    <link rel="prev" title="Administration API" href="api.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -28,12 +26,15 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
           <a href="filtron.html" title="How to protect an instance"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="api.html" title="Administration API"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-0.16.0.tex)</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Searx Documentation (Searx-1.0.0.tex)</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Administrator documentation</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Architecture</a></li> 
       </ul>
@@ -58,9 +59,9 @@
 </div>
 <p>Herein you will find some hints and suggestions about typical architectures of
 searx infrastructures.</p>
-<p>We start with a contribution from <a class="reference external" href="https://github.com/asciimoo/searx/pull/1776#issuecomment-567917320">&#64;dalf</a>.
+<p>We start with a contribution from <a class="reference external" href="https://github.com/searx/searx/pull/1776#issuecomment-567917320">&#64;dalf</a>.
 It shows a <em>reference</em> setup for public searx instances which can build up and
-maintained by the scripts from our <a class="reference internal" href="../utils/index.html#toolboxing"><span class="std std-ref">Tooling box utils/*</span></a>.</p>
+maintained by the scripts from our <a class="reference internal" href="../utils/index.html#toolboxing"><span class="std std-ref">Admin’s tooling box</span></a>.</p>
 <div class="figure align-default" id="id2">
 <img alt="arch_public.dot" src="../_images/arch_public.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Reference architecture of a public searx setup.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
@@ -83,13 +84,17 @@ maintained by the scripts from our <a class="reference internal" href="../utils/
 
   <h3>Project Links</h3>
   <ul>
-    <li><a href="https://github.com/asciimoo/searx">Source</a>
+    <li><a href="blog/index.html">Blog</a>
   
-    <li><a href="https://github.com/asciimoo/searx/wiki">Wiki</a>
+    <li><a href="https://github.com/searx/searx">Source</a>
   
-    <li><a href="https://searx.space/">Public instances</a>
+    <li><a href="https://github.com/searx/searx/wiki">Wiki</a>
+  
+    <li><a href="https://searx.space">Public instances</a>
   
     <li><a href="https://twitter.com/Searx_engine">Twitter</a>
+  
+    <li><a href="https://github.com/searx/searx/issues">Issue Tracker</a>
   </ul><h3>Navigation</h3>
 <ul>
   <li><a href="../index.html">Overview</a>
@@ -106,7 +111,7 @@ maintained by the scripts from our <a class="reference internal" href="../utils/
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
@@ -118,8 +123,8 @@ maintained by the scripts from our <a class="reference internal" href="../utils/
     </div>
   
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2020, Adam Tauber, Noémi Ványi.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+        &#169; Copyright 2015-2021, Adam Tauber, Noémi Ványi.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
     </div>
   <script src="../_static/version_warning_offset.js"></script>
 

@@ -87,7 +87,7 @@ In order to submit a patch, please follow the steps below:
 
 - Add yourself to the :origin:`AUTHORS.rst` file.
 
-- Choose meaning full commit messages, read `Conventional Commits`_
+- Choose meaningful commit messages, read `Conventional Commits`_
 
   .. code::
 
@@ -117,8 +117,8 @@ Translation currently takes place on :ref:`transifex <translation>`.
 Documentation
 =============
 
-.. _Sphinx: http://www.sphinx-doc.org
-.. _reST: http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
+.. _Sphinx: https://www.sphinx-doc.org
+.. _reST: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 .. sidebar:: The reST sources
 
@@ -132,32 +132,47 @@ Here is an example which makes a complete rebuild:
 
 .. code:: sh
 
-   $ make docs-clean docs
+   $ make docs.clean docs.html
    ...
    The HTML pages are in dist/docs.
 
-.. _make docs-live:
+.. _make docs.live:
 
 live build
 ----------
 
-.. sidebar:: docs-clean
+.. _sphinx-autobuild:
+   https://github.com/executablebooks/sphinx-autobuild/blob/master/README.md
+
+.. sidebar:: docs.clean
 
    It is recommended to assert a complete rebuild before deploying (use
-   ``docs-clean``).
+   ``docs.clean``).
 
 Live build is like WYSIWYG.  If you want to edit the documentation, its
-recommended to use.  The Makefile target ``docs-live`` builds the docs, opens
+recommended to use.  The Makefile target ``docs.live`` builds the docs, opens
 URL in your favorite browser and rebuilds every time a reST file has been
 changed.
 
 .. code:: sh
 
-   $ make docs-live
+   $ make docs.live
    ...
    The HTML pages are in dist/docs.
-   ... Serving on http://0.0.0.0:8080
+   ... Serving on http://0.0.0.0:8000
    ... Start watching changes
+
+Live builds are implemented by sphinx-autobuild_.  Use environment
+``$(SPHINXOPTS)`` to pass arguments to the sphinx-autobuild_ command.  Except
+option ``--host`` (which is always set to ``0.0.0.0``) you can pass any
+argument.  E.g to find and use a free port, use:
+
+.. code:: sh
+
+   $ SPHINXOPTS="--port 0" make docs.live
+   ...
+   ... Serving on http://0.0.0.0:50593
+   ...
 
 
 .. _deploy on github.io:
@@ -165,21 +180,10 @@ changed.
 deploy on github.io
 -------------------
 
-To deploy documentation at :docs:`github.io <.>` use Makefile target
-:ref:`make gh-pages`, which will builds the documentation, clones searx into a sub
-folder ``gh-pages``, cleans it, copies the doc build into and runs all the
-needed git add, commit and push:
+To deploy documentation at :docs:`github.io <.>` use Makefile target :ref:`make
+docs.gh-pages`, which builds the documentation and runs all the needed git add,
+commit and push:
 
 .. code:: sh
 
-   $ make docs-clean gh-pages
-   ...
-   SPHINX    docs --> file://<...>/dist/docs
-   The HTML pages are in dist/docs.
-   ...
-   Cloning into 'gh-pages' ...
-   ...
-   cd gh-pages; git checkout gh-pages >/dev/null
-   Switched to a new branch 'gh-pages'
-   ...
-   doc available at --> https://asciimoo.github.io/searx
+   $ make docs.clean docs.gh-pages
